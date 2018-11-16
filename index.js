@@ -1,21 +1,25 @@
+import dotenv from "dotenv";
+
 import { createWriteStream } from "fs";
 import { createCanvas } from "canvas";
+import fetchGasUsage from "./fetchGasUsage"
+import "isomorphic-fetch";
 
-const canvas = createCanvas(400, 200);
+dotenv.config();
+
+const gasUsage = fetchGasUsage();
+
+const canvas = createCanvas(384, 640);
 const ctx = canvas.getContext("2d");
+ctx.fillStyle = "white";
+ctx.fillRect(0, 0, 384, 640);
 
-const message = "Dashboard test1!";
+ctx.fillStyle = "black";
 
-ctx.font = "30px Impact";
-ctx.rotate(0.1);
-ctx.fillText(message, 50, 100);
-
-let text = ctx.measureText(message);
-ctx.strokeStyle = "rgba(255,255,0,1)";
-ctx.beginPath();
-ctx.lineTo(50, 102);
-ctx.lineTo(50 + text.width, 102);
-ctx.stroke();
+gasUsage.values.forEach((data, i) => {
+  const height = data[1] * 2;
+  ctx.fillRect((i * 45) + 30, 50, 10, -height);
+});
 
 const out = createWriteStream("dashboard.png"),
   stream = canvas.createPNGStream();

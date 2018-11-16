@@ -14,4 +14,12 @@ My plan is to create a dashboard for my kitchen. This dashboard will contain the
 
 # Run the project
 
-Just run `yarn start` and look for the file dashboard.png.
+Create a `.env` file in the root with the credentials, this is the template:
+
+```
+GRAFANA_HOST=http://192.168.1.2:8086
+AUTHORIZATION_API_TOKEN=xyz
+DATASOURCE_CREDENTIALS=xyz
+```
+
+After that just run `yarn start` and look for the file `dashboard.png`.
