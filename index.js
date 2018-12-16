@@ -19,7 +19,7 @@ const ctx = canvas.getContext("2d");
 ctx.fillStyle = "white";
 ctx.fillRect(0, 0, 640, 384);
 
-ctx.fillStyle = "yellow";
+ctx.fillStyle = "#ED1C24";
 
 _.forEach(gasUsage.values, (data, i) => {
   const height = data[1] * 2;
@@ -37,9 +37,9 @@ _.forEach(temperatures, (thermostat, i) => {
   ctx.fillText(thermostat.temperature, 200, i * 20 + 150);
 });
 
-const out = createWriteStream(__dirname + "/dashboard.jpeg");
-const stream = canvas.createJPEGStream();
+const out = createWriteStream(__dirname + "/dashboard.png");
+const stream = canvas.createPNGStream();
 stream.pipe(out);
 out.on("finish", () => {
-  im.convert(["dashboard.jpeg", "dashboard.bmp"]);
+  im.convert(["dashboard.png", "dashboard.bmp"]);
 });
