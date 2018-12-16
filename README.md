@@ -14,6 +14,10 @@ My plan is to create a dashboard for my kitchen. This dashboard will contain the
 
 # Run the project
 
+# install dependencies
+1. install node-canvas dependencies: https://github.com/Automattic/node-canvas#compiling
+2. run `yarn`
+
 Create a `.env` file in the root with the credentials, this is the template:
 
 ```
