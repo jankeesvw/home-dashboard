@@ -19,7 +19,7 @@ const ctx = canvas.getContext("2d");
 ctx.fillStyle = "white";
 ctx.fillRect(0, 0, 640, 384);
 
-ctx.fillStyle = "black";
+ctx.fillStyle = "yellow";
 
 _.forEach(gasUsage.values, (data, i) => {
   const height = data[1] * 2;
@@ -27,6 +27,7 @@ _.forEach(gasUsage.values, (data, i) => {
 });
 
 ctx.font = "15px Courier";
+ctx.fillStyle = "black";
 
 ctx.fillText(new Date().toString(), 10, 20);
 
