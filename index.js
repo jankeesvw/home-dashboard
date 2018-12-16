@@ -28,6 +28,8 @@ _.forEach(gasUsage.values, (data, i) => {
 
 ctx.font = "15px Courier";
 
+ctx.fillText(new Date().toString(), 10, 20);
+
 _.forEach(temperatures, (thermostat, i) => {
   ctx.fillText(thermostat.name, 10, i * 20 + 150);
   ctx.fillText(thermostat.setpoint, 130, i * 20 + 150);
@@ -38,5 +40,5 @@ const out = createWriteStream(__dirname + "/dashboard.jpeg");
 const stream = canvas.createJPEGStream();
 stream.pipe(out);
 out.on("finish", () => {
-  return console.log("The JPEG file was created.");
+  im.convert(["dashboard.jpeg", "dashboard.bmp"]);
 });
