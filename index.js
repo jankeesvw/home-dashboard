@@ -14,6 +14,7 @@ const temperatures = fetchTemperatures();
 
 const canvas = createCanvas(384, 640);
 const ctx = canvas.getContext("2d");
+
 ctx.fillStyle = "white";
 ctx.fillRect(0, 0, 384, 640);
 
@@ -24,7 +25,7 @@ _.forEach(gasUsage.values, (data, i) => {
   ctx.fillRect(i * 45 + 30, 50, 10, -height);
 });
 
-ctx.font = '12px hack'
+ctx.font = '19px Courier';
 
 _.forEach(temperatures, (thermostat, i) => {
   ctx.fillText(thermostat.name, 10, i * 20 + 150);
