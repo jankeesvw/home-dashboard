@@ -25,19 +25,25 @@ ctx.fillRect(0, 0, 640, 384);
 ctx.fillStyle = "black";
 
 _.forEach(gasUsage.values, (data, i) => {
-  const height = data[1] * 2;
-  ctx.fillRect(i * 45 + 30, 90, 30, -height);
+  const value = data[1];
+  const height = value * 2;
+  const x = i * 65 + 10;
+  const y = 75;
+  const width = 63;
+  ctx.fillRect(x, y, width, -height);
+  ctx.fillText(`${parseInt(value)}m³\n€${parseInt(value * 0.67)}`, x, y + 20);
 });
 
 ctx.fillStyle = "black";
 
-ctx.fillText(new Date().toString(), 10, 20);
+const date = new Date();
+ctx.fillText(`${date.getHours()}:${date.getMinutes()}`, 10, 20);
 
 _.forEach(temperatures, (thermostat, i) => {
   const space = 25;
   ctx.fillText(thermostat.name, 10, i * space + 150);
-  ctx.fillText(thermostat.setpoint, 140, i * space + 150);
-  ctx.fillText(thermostat.temperature, 200, i * space + 150);
+  ctx.fillText(parseInt(thermostat.setpoint), 140, i * space + 150);
+  ctx.fillText(parseInt(thermostat.temperature), 200, i * space + 150);
 });
 
 ctx.fillText(timi, 300, 150);
