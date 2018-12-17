@@ -18,7 +18,7 @@ const timi = fetchTimiStatistics();
 const canvas = createCanvas(640, 384);
 const ctx = canvas.getContext("2d");
 ctx.antialias = 'none';
-ctx.font = "19px Courier";
+ctx.font = "19px Arial";
 ctx.fillStyle = "white";
 ctx.fillRect(0, 0, 640, 384);
 
