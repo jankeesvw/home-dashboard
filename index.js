@@ -19,7 +19,7 @@ const ctx = canvas.getContext("2d");
 ctx.fillStyle = "white";
 ctx.fillRect(0, 0, 640, 384);
 
-ctx.fillStyle = "#ED1C24";
+ctx.fillStyle = "black";
 
 _.forEach(gasUsage.values, (data, i) => {
   const height = data[1] * 2;
