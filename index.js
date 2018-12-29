@@ -24,11 +24,8 @@ ctx.fillRect(0, 0, 640, 384);
 
 ctx.fillStyle = "black";
 
-let gasData = gasUsage.values;
-gasData.shift(); // remove the first (incomplete day)
-
-_.forEach(gasUsage.values, (data, i) => {
-  const value = data[1];
+_.forEach(gasUsage, (data, i) => {
+  const value = data.v;
   const height = value * 2;
   const x = i * 65 + 10;
   const y = 75;
